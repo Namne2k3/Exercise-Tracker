@@ -26,7 +26,7 @@ router.post('/:_id/exercises', async (req, res) => {
                 date: req.body.date ? new Date(req.body.date).toDateString() : new Date().toDateString()
             }
 
-            console.log("Check exerciseDoc >>> ", ExerciseDoc);
+            // console.log("Check exerciseDoc >>> ", ExerciseDoc);
 
             const newExercise = await Exercise.create(ExerciseDoc)
             const savedExercise = await newExercise.save();
@@ -62,13 +62,13 @@ router.post('/:_id/exercises', async (req, res) => {
                 )
             }
 
-            console.log("Check res.json >>> ", {
-                _id: findUser._id.toString(),
-                username: findUser.username,
-                description: savedExercise.description,
-                duration: savedExercise.duration,
-                date: new Date(savedExercise.date).toDateString()
-            });
+            // console.log("Check res.json >>> ", {
+            //     _id: findUser._id.toString(),
+            //     username: findUser.username,
+            //     description: savedExercise.description,
+            //     duration: savedExercise.duration,
+            //     date: new Date(savedExercise.date).toDateString()
+            // });
 
             res.status(200).json({
                 _id: findUser._id.toString(),
@@ -100,7 +100,7 @@ router.get('/:_id/logs', async (req, res) => {
         const _id = req.params._id
         const dataFull = await Log.find({ userId: _id })
         const [data] = dataFull
-        console.log("Check data >>> ", data);
+        // console.log("Check data >>> ", data);
         if (data) {
 
             if (from) {
@@ -138,7 +138,7 @@ router.get('/:_id/logs', async (req, res) => {
                 })
             }
 
-            console.log("Check data doc >>> ", dataDoc);
+            // console.log("Check data doc >>> ", dataDoc);
             res.json(dataDoc)
         } else {
             throw new Error("Log not found!")
