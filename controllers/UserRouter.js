@@ -87,12 +87,6 @@ router.post('/:_id/exercises', async (req, res) => {
         })
     }
 })
-
-function addDays(date, days) {
-    date.setDate(date.getDate() + days);
-    return date;
-}
-
 router.get('/:_id/logs', async (req, res) => {
     try {
 
